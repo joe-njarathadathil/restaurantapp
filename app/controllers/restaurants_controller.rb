@@ -10,6 +10,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1
   # GET /restaurants/1.json
   def show
+    map_link
   end
 
   # GET /restaurants/new
@@ -59,6 +60,13 @@ class RestaurantsController < ApplicationController
       format.html { redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def map_link
+    map = "https://maps.googleapis.com/maps/api/staticmap?markers="
+    map = map + @restaurant.address.gsub(/\s/,"+")
+    map = map + "&zoom=16&size=400x400&key=AIzaSyBUGO77KFtPJg-vj26hi1oHRhNNHSGZMrs"
+    @map_url= map
   end
 
   private
