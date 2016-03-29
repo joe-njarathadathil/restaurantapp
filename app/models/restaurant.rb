@@ -1,7 +1,7 @@
 class Restaurant < ActiveRecord::Base
 	has_many :restaurant_owners
 	has_many :owners, through: :restaurant_owners
-
+  has_many :reservations
   validates :name, presence: true
   validates :description, presence: true
   validates :address, presence: true
