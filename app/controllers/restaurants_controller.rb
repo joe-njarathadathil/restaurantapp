@@ -11,6 +11,7 @@ class RestaurantsController < ApplicationController
   # GET /restaurants/1.json
   def show
     map_link
+    @reservations = Reservations.new    
   end
 
   # GET /restaurants/new
